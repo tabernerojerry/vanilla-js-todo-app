@@ -1,0 +1,131 @@
+.bg-container {
+  position: relative;
+  padding: 6em 0 1rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+.bg-container:after {
+  content: " ";
+  background: #283593;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  z-index: -1;
+}
+.bg-container:before {
+  content: " ";
+  background: #304ffe;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  z-index: -1;
+}
+
+h1,
+.chip {
+  color: #fff;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+
+.complete {
+  border-top: 1px solid #e0e0e0;
+}
+
+.todo-container {
+  max-width: 450px;
+  background: #fff;
+  border-radius: 3px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+.todo-container > .row {
+  margin-bottom: 0;
+}
+.todo-container > .row > .input-field:first-child {
+  padding: 0;
+}
+
+/* .btn-delete {
+  opacity: 0;
+} */
+
+.btn-delete.btn-floating {
+  width: 30px;
+  height: 30px;
+}
+.btn-delete.btn-floating i {
+  line-height: 30px;
+  color: #b71c1c;
+}
+.btn-delete.btn-floating:hover {
+  background-color: #ef9a9a;
+}
+.btn-clear-complete {
+  margin-bottom: 16px;
+}
+
+.collection-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+/* .collection-item:hover .btn-delete {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+} */
+
+.chip span {
+  display: inline-block;
+}
+
+.animate-list-enter {
+  animation: animateEnter 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.animate-list-leave {
+  animation: animateLeave 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.animate-list-number {
+  animation: animateNumber 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+@keyframes animateNumber {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateEnter {
+  from {
+    transform: translateY(-51px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateLeave {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-51px);
+  }
+}

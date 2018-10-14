@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test Sort List</title>
+</head>
+
+<body>
+    <h2>Collection</h2>
+    <div class="collection">
+        <!-- Incomplete -->
+        <ul class="incomplete">
+            <li id="test-3"><input type="checkbox" id="task-3"><label for="task-3">Item 3</label></li>
+            <li id="test-2"><input type="checkbox" id="task-2"><label for="task-2">Item 2</label></li>
+            <li id="test-1"><input type="checkbox" id="task-1"><label for="task-1">Item 1</label></li>
+            <li id="test-100"><input type="checkbox" id="task-100"><label for="task-100">Item 100</label></li>
+            <li id="test-12"><input type="checkbox" id="task-12"><label for="task-12">Item 12</label></li>
+        </ul>
+        <!-- Complete -->
+        <ul class="complete"></ul>
+    </div>
+    <script>
+
+        document.querySelector('.collection').addEventListener('change', ctrlClick);
+
+        function ctrlClick(event) {
+            let id = event.target.parentNode.id;
+            // console.log(id);
+            let currEL = document.getElementById(id);
+
+            const completeContainer = document.querySelector('.complete');
+            const incompleteContainer = document.querySelector('.incomplete');
+
+            const completeLists = '.complete li';
+            const incompleteLists = '.incomplete li';
+
+            if (event.target.checked) {
+                setParent(currEL, completeContainer);
+                appendSortLists(completeLists, completeContainer);
+            } else {
+                setParent(currEL, incompleteContainer);
+                appendSortLists(incompleteLists, incompleteContainer);
+            }
+
+        }
+
+        function appendSortLists(elSelector, elAppendTo) {
+            let arr = Array.from(document.querySelectorAll(elSelector)).sort(sort_list);
+
+            arr.forEach(el => setParent(el, elAppendTo));
+        }
+
+        function setParent(el, newParent) {
+            newParent.appendChild(el);
+        }
+
+        function sort_list(a, b) {
+            return (parseFloat((b).id.split('-')[1]) < parseFloat((a).id.split('-')[1]) ? 1 : -1);
+        }
+
+    </script>
+</body>
+
+</html>
